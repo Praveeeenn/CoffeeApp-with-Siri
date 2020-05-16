@@ -19,7 +19,9 @@ class OrdersTableViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
     }
     
@@ -57,7 +59,16 @@ class OrdersTableViewController : UITableViewController {
     }
     
     private func donateOrderActivityWith(order: Order) {
+        let orderActivity = NSUserActivity(activityType: "com.praveen.HotCoffee-hotcoffee-activity-type")
+        orderActivity.isEligibleForSearch = true
+        orderActivity.isEligibleForPrediction = true
+        orderActivity.title = order.coffee.name
+        orderActivity.suggestedInvocationPhrase = "Coffe Time"
         
+        let attribute = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+        attribute.contentDescription = "Get it while its hot!"
+        self.userActivity = orderActivity
+        self.userActivity?.becomeCurrent()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
