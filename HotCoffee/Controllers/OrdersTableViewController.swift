@@ -17,16 +17,24 @@ class OrdersTableViewController : UITableViewController {
     
     var orders :[Order] = [Order]()
     
+    private var coffeeDataManager = CoffeeOrderDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        populateOrders()
+    }
+    
+    private func populateOrders() {
+        self.orders = coffeeDataManager.getAllOrders()
+        self.tableView.reloadData()
     }
     
     @IBAction func unwindToOrdersTableViewController(segue:UIStoryboardSegue) {
-        self.tableView.reloadData()
+        populateOrders()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,26 +57,26 @@ class OrdersTableViewController : UITableViewController {
         }
     }
     
-    func addOrder(order :Order) {
-        
-        self.orders.append(order)
-//        donateOrderActivityWith(order: order)
-        self.donate(order: order)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
+//    func addOrder(order :Order) {
+//
+//        self.orders.append(order)
+////        donateOrderActivityWith(order: order)
+//        self.donate(order: order)
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//    }
     
-    private func donate(order: Order) {
-        let interaction = INInteraction(intent: order.intent, response: nil)
-        
-        interaction.donate { (error) in
-            if let error = error {
-                print("ERRORRR:---- \(error)")
-            }
-        }
-        
-    }
+//    private func donate(order: Order) {
+//        let interaction = INInteraction(intent: order.intent, response: nil)
+//
+//        interaction.donate { (error) in
+//            if let error = error {
+//                print("ERRORRR:---- \(error)")
+//            }
+//        }
+//
+//    }
     
 //    private func donateOrderActivityWith(order: Order) {
 //        let orderActivity = NSUserActivity(activityType: "com.praveen.HotCoffee-hotcoffee-activity-type")

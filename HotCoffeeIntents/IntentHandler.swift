@@ -20,16 +20,25 @@ class IntentHandler: INExtension {
 }
 
 extension IntentHandler: OrderCoffeeIntentHandling {
+    
+    func confirm(intent: OrderCoffeeIntent, completion: @escaping (OrderCoffeeIntentResponse) -> Void) {
+        if let order = Order(intent: intent) {
+            let coffeeOrderDatamanager = CoffeeOrderDataManager()
+            coffeeOrderDatamanager.saveOrder(order: order)
+        }
+        completion(OrderCoffeeIntentResponse(code: .ready, userActivity:  nil))
+    }
+    
     func handle(intent: OrderCoffeeIntent, completion: @escaping (OrderCoffeeIntentResponse) -> Void) {
-        
+        completion(OrderCoffeeIntentResponse(code: .success, userActivity: nil))
     }
     
     func resolveTotal(for intent: OrderCoffeeIntent, with completion: @escaping (OrderCoffeeTotalResolutionResult) -> Void) {
-        
+        completion(.unsupported(forReason: .greaterThanMaximumValue))
     }
     
     func resolveCoffee(for intent: OrderCoffeeIntent, with completion: @escaping (TypeResolutionResult) -> Void) {
-        
+        completion(.success(with: (OrderCoffeeIntent().coffee)!))
     }
     
     func resolveSize(for intent: OrderCoffeeIntent, with completion: @escaping (CoffeSizeResolutionResult) -> Void) {

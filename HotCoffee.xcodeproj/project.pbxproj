@@ -28,6 +28,16 @@
 		AC688D592471495E0091CF9F /* HotCoffeeIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AC688D402471495E0091CF9F /* HotCoffeeIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AC688D6124714C830091CF9F /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AC688D3A24708BC70091CF9F /* Intents.intentdefinition */; };
 		AC688D6224714C840091CF9F /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AC688D3A24708BC70091CF9F /* Intents.intentdefinition */; };
+		AC688D6524714FA80091CF9F /* CoffeeOrderDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC688D6424714FA80091CF9F /* CoffeeOrderDataManager.swift */; };
+		AC688D6624714FA80091CF9F /* CoffeeOrderDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC688D6424714FA80091CF9F /* CoffeeOrderDataManager.swift */; };
+		AC688D6724714FA80091CF9F /* CoffeeOrderDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC688D6424714FA80091CF9F /* CoffeeOrderDataManager.swift */; };
+		AC688D68247151270091CF9F /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE04020F11E3B001E64BE /* Order.swift */; };
+		AC688D69247151280091CF9F /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE04020F11E3B001E64BE /* Order.swift */; };
+		AC688D6A247151370091CF9F /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE03E20F11E1F001E64BE /* Coffee.swift */; };
+		AC688D6B247151370091CF9F /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE03E20F11E1F001E64BE /* Coffee.swift */; };
+		AC688D6F24716B280091CF9F /* CoffeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC688D6E24716B280091CF9F /* CoffeeManager.swift */; };
+		AC688D7024716B280091CF9F /* CoffeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC688D6E24716B280091CF9F /* CoffeeManager.swift */; };
+		AC688D7124716B280091CF9F /* CoffeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC688D6E24716B280091CF9F /* CoffeeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +96,10 @@
 		AC688D4E2471495E0091CF9F /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
 		AC688D512471495E0091CF9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		AC688D532471495E0091CF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC688D6424714FA80091CF9F /* CoffeeOrderDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrderDataManager.swift; sourceTree = "<group>"; };
+		AC688D6C247151690091CF9F /* HotCoffeeIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotCoffeeIntents.entitlements; sourceTree = "<group>"; };
+		AC688D6D247151F30091CF9F /* Coffee App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Coffee App.entitlements"; sourceTree = "<group>"; };
+		AC688D6E24716B280091CF9F /* CoffeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +152,8 @@
 		8D8EE02120F11A3E001E64BE /* HotCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				AC688D6D247151F30091CF9F /* Coffee App.entitlements */,
+				AC688D6324714F770091CF9F /* Managers */,
 				8D8EE04220F11F37001E64BE /* Images */,
 				8D8EE03720F11A7F001E64BE /* Models */,
 				8D8EE03420F11A64001E64BE /* Controllers */,
@@ -183,6 +199,7 @@
 		AC688D412471495E0091CF9F /* HotCoffeeIntents */ = {
 			isa = PBXGroup;
 			children = (
+				AC688D6C247151690091CF9F /* HotCoffeeIntents.entitlements */,
 				AC688D422471495E0091CF9F /* IntentHandler.swift */,
 				AC688D442471495E0091CF9F /* Info.plist */,
 			);
@@ -205,6 +222,15 @@
 				AC688D532471495E0091CF9F /* Info.plist */,
 			);
 			path = HotCoffeeIntentsUI;
+			sourceTree = "<group>";
+		};
+		AC688D6324714F770091CF9F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AC688D6424714FA80091CF9F /* CoffeeOrderDataManager.swift */,
+				AC688D6E24716B280091CF9F /* CoffeeManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,9 +368,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC688D6524714FA80091CF9F /* CoffeeOrderDataManager.swift in Sources */,
 				AC688D3B24708BC70091CF9F /* Intents.intentdefinition in Sources */,
 				8D8EE04B20F125B8001E64BE /* PlaceOrderTableViewController.swift in Sources */,
 				8D8EE02320F11A3E001E64BE /* AppDelegate.swift in Sources */,
+				AC688D6F24716B280091CF9F /* CoffeeManager.swift in Sources */,
 				8D8EE03620F11A78001E64BE /* OrdersTableViewController.swift in Sources */,
 				8D8EE04120F11E3B001E64BE /* Order.swift in Sources */,
 				8D8EE03D20F11CF5001E64BE /* CoffeeListingTableViewController.swift in Sources */,
@@ -356,8 +384,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC688D6624714FA80091CF9F /* CoffeeOrderDataManager.swift in Sources */,
+				AC688D7024716B280091CF9F /* CoffeeManager.swift in Sources */,
 				AC688D6124714C830091CF9F /* Intents.intentdefinition in Sources */,
+				AC688D68247151270091CF9F /* Order.swift in Sources */,
 				AC688D432471495E0091CF9F /* IntentHandler.swift in Sources */,
+				AC688D6A247151370091CF9F /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +397,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC688D6724714FA80091CF9F /* CoffeeOrderDataManager.swift in Sources */,
+				AC688D7124716B280091CF9F /* CoffeeManager.swift in Sources */,
 				AC688D6224714C840091CF9F /* Intents.intentdefinition in Sources */,
+				AC688D69247151280091CF9F /* Order.swift in Sources */,
 				AC688D4F2471495E0091CF9F /* IntentViewController.swift in Sources */,
+				AC688D6B247151370091CF9F /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +570,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HotCoffee/Coffee App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YXJB9BHKK7;
 				INFOPLIST_FILE = HotCoffee/Info.plist;
@@ -553,6 +590,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HotCoffee/Coffee App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YXJB9BHKK7;
 				INFOPLIST_FILE = HotCoffee/Info.plist;
@@ -610,6 +648,7 @@
 		AC688D5E2471495E0091CF9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HotCoffeeIntents/HotCoffeeIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YXJB9BHKK7;
 				INFOPLIST_FILE = HotCoffeeIntents/Info.plist;
@@ -630,6 +669,7 @@
 		AC688D5F2471495E0091CF9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HotCoffeeIntents/HotCoffeeIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YXJB9BHKK7;
 				INFOPLIST_FILE = HotCoffeeIntents/Info.plist;

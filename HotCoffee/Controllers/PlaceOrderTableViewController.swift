@@ -47,10 +47,11 @@ class PlaceOrderTableViewController : UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let coffee = self.coffee else { return }
 
-        let order = Order(coffee: coffee, total: self.total, size: self.coffeeSize)
+        let coffeeOrderDataManager = CoffeeOrderDataManager()
         
-        let ordersTVC = segue.destination as! OrdersTableViewController
-        ordersTVC.addOrder(order: order)
+        let order = Order(coffee: coffee, total: self.total, size: self.coffeeSize, identifier: UUID())
+        
+        coffeeOrderDataManager.saveOrder(order: order)        
     }
     
     private func updateTotalLabel(coffeeSize :CoffeeSize) {

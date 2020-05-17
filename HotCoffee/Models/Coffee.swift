@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Coffee {
+struct Coffee: Codable {
     var name :String
     var imageURL :String
     var basePrice :Double
