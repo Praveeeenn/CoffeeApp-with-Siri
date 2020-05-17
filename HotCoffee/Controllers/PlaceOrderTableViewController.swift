@@ -45,22 +45,23 @@ class PlaceOrderTableViewController : UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let order = Order(coffee: self.coffee, total: self.total, size: self.coffeeSize)
+        guard let coffee = self.coffee else { return }
+
+        let order = Order(coffee: coffee, total: self.total, size: self.coffeeSize)
         
         let ordersTVC = segue.destination as! OrdersTableViewController
         ordersTVC.addOrder(order: order)
     }
     
     private func updateTotalLabel(coffeeSize :CoffeeSize) {
-        
+        guard let coffee = self.coffee else { return }
         switch coffeeSize {
             case .small:
-                self.total = self.coffee.basePrice * 1.5
+                self.total = coffee.basePrice * 1.5
             case .medium:
-                self.total = self.coffee.basePrice * 2.5
+                self.total = coffee.basePrice * 2.5
             case .large:
-                self.total = self.coffee.basePrice * 3.5
+                self.total = coffee.basePrice * 3.5
         }
         
         self.coffeeSize = coffeeSize
@@ -68,8 +69,8 @@ class PlaceOrderTableViewController : UITableViewController {
     }
     
     @objc func coffeeeSizeSelectionChanged(segmentedControl :UISegmentedControl) {
-        
-        updateTotalLabel(coffeeSize: CoffeeSize(rawValue: segmentedControl.selectedSegmentIndex)!)
+        guard let coffeeSize = CoffeeSize(rawValue: segmentedControl.selectedSegmentIndex) else { return }
+        updateTotalLabel(coffeeSize: coffeeSize)
     }
     
     private func populateCoffee() {

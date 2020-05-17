@@ -19,6 +19,7 @@
 		8D8EE04720F11F49001E64BE /* iced-coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D8EE04420F11F49001E64BE /* iced-coffee.png */; };
 		8D8EE04820F11F49001E64BE /* cappuccino.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D8EE04520F11F49001E64BE /* cappuccino.png */; };
 		8D8EE04B20F125B8001E64BE /* PlaceOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EE04A20F125B8001E64BE /* PlaceOrderTableViewController.swift */; };
+		AC688D3B24708BC70091CF9F /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AC688D3A24708BC70091CF9F /* Intents.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8D8EE04420F11F49001E64BE /* iced-coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iced-coffee.png"; sourceTree = "<group>"; };
 		8D8EE04520F11F49001E64BE /* cappuccino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cappuccino.png; sourceTree = "<group>"; };
 		8D8EE04A20F125B8001E64BE /* PlaceOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOrderTableViewController.swift; sourceTree = "<group>"; };
+		AC688D3A24708BC70091CF9F /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				8D8EE02920F11A3F001E64BE /* Assets.xcassets */,
 				8D8EE02B20F11A3F001E64BE /* LaunchScreen.storyboard */,
 				8D8EE02E20F11A3F001E64BE /* Info.plist */,
+				AC688D3A24708BC70091CF9F /* Intents.intentdefinition */,
 			);
 			path = HotCoffee;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC688D3B24708BC70091CF9F /* Intents.intentdefinition in Sources */,
 				8D8EE04B20F125B8001E64BE /* PlaceOrderTableViewController.swift in Sources */,
 				8D8EE02320F11A3E001E64BE /* AppDelegate.swift in Sources */,
 				8D8EE03620F11A78001E64BE /* OrdersTableViewController.swift in Sources */,

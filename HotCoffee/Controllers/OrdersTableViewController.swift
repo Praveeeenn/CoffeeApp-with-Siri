@@ -52,24 +52,38 @@ class OrdersTableViewController : UITableViewController {
     func addOrder(order :Order) {
         
         self.orders.append(order)
-        donateOrderActivityWith(order: order)
+//        donateOrderActivityWith(order: order)
+        self.donate(order: order)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    private func donateOrderActivityWith(order: Order) {
-        let orderActivity = NSUserActivity(activityType: "com.praveen.HotCoffee-hotcoffee-activity-type")
-        orderActivity.isEligibleForSearch = true
-        orderActivity.isEligibleForPrediction = true
-        orderActivity.title = order.coffee.name
-        orderActivity.suggestedInvocationPhrase = "Coffe Time"
+    private func donate(order: Order) {
+        let interaction = INInteraction(intent: order.intent, response: nil)
         
-        let attribute = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-        attribute.contentDescription = "Get it while its hot!"
-        self.userActivity = orderActivity
-        self.userActivity?.becomeCurrent()
+        interaction.donate { (error) in
+            if let error = error {
+                print("ERRORRR:---- \(error)")
+            }
+        }
+        
     }
+    
+//    private func donateOrderActivityWith(order: Order) {
+//        let orderActivity = NSUserActivity(activityType: "com.praveen.HotCoffee-hotcoffee-activity-type")
+//        orderActivity.isEligibleForSearch = true
+//        orderActivity.isEligibleForPrediction = true
+//        orderActivity.title = order.coffee.name
+//        orderActivity.suggestedInvocationPhrase = "Coffe Time"
+//        orderActivity.userInfo = ["Key": "Value"]
+//
+//        let attribute = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+//        attribute.contentDescription = "Get it while its hot!"
+//        attribute.thumbnailData = UIImage(named: order.coffee.imageURL)?.pngData()
+//        self.userActivity = orderActivity
+//        self.userActivity?.becomeCurrent()
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
